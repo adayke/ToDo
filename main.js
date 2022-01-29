@@ -17,22 +17,31 @@
   };
   
   function showList() {
+    let noTaskStatus = true;
+    
     console.log("To Do:")
   for (let key in list) {
     if (list[key] == 'To Do') {
       console.log(`\t${key}`)
+      noTaskStatus = false;
     }
-  }
+  } if (noTaskStatus == true) { console.log(`\t -`) };
+
     console.log("In Progress:")
+    noTaskStatus = true;
     for (let key in list) {
       if (list[key] == "In Progress") {
       console.log(`\t${key}`)
+        noTaskStatus = false;
     }
-  }
-    console.log("Done:")
+  } if (noTaskStatus == true) { console.log(`\t -`) }; 
+    
+  console.log("Done:")
+    noTaskStatus = true;
     for (let key in list) {
       if (list[key] == "Done") {
       console.log(`\t${key}`)
-      }
-    }
+        noTaskStatus = false;
+      } 
+    } if (noTaskStatus == true) { console.log(`\t -`) }; 
 } showList();
