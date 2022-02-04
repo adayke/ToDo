@@ -1,20 +1,29 @@
-  const list = {
-    "create a new practice task": "To Do",
-    "make a bed": "To Do",
-    "write a post": "In Progress",  
-  };
+const list = [
+  {name:"create a new practice task", status: "To Do", priority: 'Low' },
+  {name: "make a bed", status: "To Do", priority: 'Low' },
+  {name: "write a post", status: "Done", priority: "High" },  
+];
 
-  function changeStatus(key, status) { 
-    list[key] = status 
-  };
+function addTask(name) {
+list.push({ name: name, status: 'To Do', priority: 'Low' })
+};
 
-  function addTask(key) {
-    list[key] = 'To Do'
-  };
+function deleteTask(name) {
+let findIndex = list.findIndex(item => item.name == name)
+if(findIndex !== -1) {
+  list.splice(findIndex, 1)
+  } 
+};
 
-  function deleteTask(key) { 
-    delete list[key]
-  };
+function changeStatus(name, status, priority) {
+let findName = list.find(item => item.name == name)
+findName['status'] = status
+if(status == 'Done') {
+findName['priority'] = 'High'
+} else {
+findName['priority'] = 'Low'
+}
+}
   
   function showList() {
     let noTaskStatus = true;
