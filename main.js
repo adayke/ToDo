@@ -1,5 +1,5 @@
 const list = [
-  { name: "create a new practice task", status: "To Do", priority: 'Low' },
+  { name: "create task", status: "To Do", priority: 'Low' },
   { name: "make a bed", status: "In Progress", priority: 'Low' },
   { name: "write a post", status: "Done", priority: "High" },
   { name: "do sport", status: "Done", priority: "High" },  
@@ -10,10 +10,11 @@ function addTask(name) {
 };
 
 function deleteTask(name) {
-  let findIndex = list.findIndex(item => item.name == name)
-    if(findIndex !== -1) {
-      list.splice(findIndex, 1)
-    } 
+  list.find(function (item, index) { 
+    if(item.name === name) {
+      list.splice(index, 1)
+    }
+   })
 };
 
 function changeStatus(name, status) {
@@ -28,56 +29,43 @@ function changeStatus(name, status) {
   
   function showList() {
     console.log("To Do:")
-    let findTodo = list.filter(item => item.status == "To Do")
-    if(findTodo === undefined) {
-      console.log(`\t -`);
-    } else {
-      for (let key in findTodo) {
-        console.log(findTodo[key])
-      }
+    list.forEach(function (item) {
+      if (item.status === 'To Do') {
+        console.log(`\t${item.name}`);
     }
+  })
 
     console.log("In Progress:")
-    let findInProgress = list.filter(item => item.status == "In Progress")
-    if(findInProgress === undefined) {
-      console.log(`\t -`);
-    } else {
-      for (let key in findInProgress) {
-        console.log(findInProgress[key])
-      } 
-  };  
+    list.forEach( function(item) {
+      if(item.status === 'In Progress') {
+        console.log(`\t${item.name}`)
+      }
+    })  
     
   console.log("Done:")
-    let findDone = list.filter(item => item.status == "Done")
-    if(findDone === undefined){
-      console.log(`\t -`)
-    } else {
-      for (let key in findDone) {
-        console.log(findDone[key])
+    list.forEach( function(item) {
+      if(item.status === 'Done') {
+        console.log(`\t${item.name}`)
       }
-    } 
+    })
 } showList();
 
-function showBy(prop) {
-  if(prop == 'High') {
-  let findHighPrioritys = list.filter(item => item.priority == "High")
-  if (findHighPrioritys === undefined) {
-    console.log(`\t -`)
-  } else {
-    for (let key in findHighPrioritys) {
-      console.log(findHighPrioritys[key])
-      }
+function showBy(item) {
+  if(item == 'High') {
+  console.log('High:')
+  list.forEach( function(item) {
+    if(item.priority == 'High') {
+      console.log(`\t${item.name}`)
     }
+  })
+}
+  if(item == 'Low'){
+    console.log('Low:')
+    list.forEach(function (item) {
+      if(item.priority == 'Low') {
+        console.log(`\t${item.name}`)
+      }
+    })
   }
 
-  if (prop == 'Low') {
-    let findLowPrioritys = list.filter(item => item.priority == "Low")
-    if (findLowPrioritys === undefined) {
-      console.log(`\t -`)
-    } else {
-      for (let key in findLowPrioritys) {
-        console.log(findLowPrioritys[key])
-      }
-    }
-  }
 }
