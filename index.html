@@ -5,11 +5,62 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <title>ToDo</title>
 </head>
 
 <body>
-  <script src="/main.js"></script>
+<div class="toDo">
+  <div class="high__block">
+    <p class="high__text">HIGH</p>
+
+    <div class="high__add">
+      <input type="text" class="high__input" placeholder="Добавить важных дел">
+      <img src="/img/add-icon.svg" alt="" class="add__icon">
+    </div>
+
+    <div class="added__high-task">
+      <input type="radio" class="check__high-task">
+      <p class="added__high-text">Вот вам и супер интересная тема. Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести некоторые вещи куда-то за пределы основной программы.</p>
+      <img src="/img/close-icon.svg" alt="" class="close__icon">
+    </div>
+
+    <div class="added__high-task">
+        <input type="radio" class="check__high-task">
+        <p class="added__high-text">Сверстать этот TODO list</p>
+        <img src="/img/close-icon.svg" alt="" class="close__icon">
+      </div>
+
+    <div class="added__high-taskDone">
+        <input type="radio" class="check__high-task">
+        <p class="added__high-text">Начать делать задачу</p>
+        <img src="/img/close-icon.svg" alt="" class="close__icon">
+      </div>
+
+  </div>
+
+
+  <div class="low__block">
+    <p class="low__text">LOW</p>
+  
+    <div class="low__add">
+      <input type="text" class="low__input" placeholder="Добавить">
+      <img src="/img/add-icon.svg" alt="" class="add__icon">
+    </div>
+  
+    <div class="added__low-task">
+      <input type="radio" class="check__low-task">
+      <p class="added__low-text">Посмотреть ютубчик</p>
+      <img src="/img/close-icon.svg" alt="" class="close__icon">
+    </div>
+
+  
+  </div>
+
+</div>
+
+  <script type="module" src="/main.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,155 @@
+body {
+  background-color: grey;
+  font-family: 'Roboto';
+  font-weight: 400;
+}
+
+.toDo {
+  width: 476px;
+  height: 588px;
+  margin: 0 auto;
+  background: #ffffff;
+}
+
+/* BLOCK HIGH */
+.high__block {
+  padding-top: 5px;
+}
+
+.high__text {
+  text-align: center;
+}
+
+.high__add {
+  position: relative;
+  margin: 8px;
+}
+
+.high__input {
+  width: 442px;
+  height: 45px;
+  padding-left: 14px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid grey;
+}
+
+.add__icon {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  cursor: pointer;
+}
+
+/* HIGH ADDED */
+.added__high-task {
+  position: relative;
+  width: 459px;
+  height: auto;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 8px;
+}
+
+.check__high-task {
+  position: absolute;
+  top: 14px;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.added__high-text {
+  padding-left: 45px;
+  padding-right: 20px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.close__icon {
+  position: absolute;
+  top: 15px;
+  right: 12px;
+  cursor: pointer;
+}
+
+.added__high-taskDone {
+  position: relative;
+  width: 459px;
+  height: auto;
+  border: 1px solid grey;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  margin: 8px;
+}
+
+/* BLOCK LOW */
+.low__block {
+}
+
+.low__text {
+  text-align: center;
+}
+
+.low__add {
+  position: relative;
+  margin: 8px;
+}
+
+.low__input {
+  width: 442px;
+  height: 45px;
+  padding-left: 14px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid grey;
+}
+
+.add__icon {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  cursor: pointer;
+}
+
+/* HIGH ADDED */
+.added__low-task {
+  position: relative;
+  width: 459px;
+  height: auto;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 8px;
+}
+
+.check__low-task {
+  position: absolute;
+  top: 14px;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.added__low-text {
+  padding-left: 45px;
+  padding-right: 20px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.close__icon {
+  position: absolute;
+  top: 15px;
+  right: 12px;
+  cursor: pointer;
+}
+
+.added__low-taskDone {
+  position: relative;
+  width: 459px;
+  height: auto;
+  border: 1px solid grey;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  margin: 8px;
+}
