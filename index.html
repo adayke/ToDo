@@ -1,66 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <link rel="stylesheet" href="/normalize.css">
   <link rel="stylesheet" href="/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-  <title>ToDo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@300;400&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
-<div class="toDo">
-  <div class="high__block">
-    <p class="high__text">HIGH</p>
-
-    <div class="high__add">
-      <input type="text" class="high__input" placeholder="Добавить важных дел">
-      <img src="/img/add-icon.svg" alt="" class="add__icon">
-    </div>
-
-    <div class="added__high-task">
-      <input type="radio" class="check__high-task">
-      <p class="added__high-text">Вот вам и супер интересная тема. Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести некоторые вещи куда-то за пределы основной программы.</p>
-      <img src="/img/close-icon.svg" alt="" class="close__icon">
-    </div>
-
-    <div class="added__high-task">
-        <input type="radio" class="check__high-task">
-        <p class="added__high-text">Сверстать этот TODO list</p>
-        <img src="/img/close-icon.svg" alt="" class="close__icon">
-      </div>
-
-    <div class="added__high-taskDone">
-        <input type="radio" class="check__high-task">
-        <p class="added__high-text">Начать делать задачу</p>
-        <img src="/img/close-icon.svg" alt="" class="close__icon">
-      </div>
-
+  <div class="to-do">
+    <p class="to-do__priority">HIGH</p>
+    <form onsubmit="return false" class="to-do__form to-do__form_high">
+      <input id="form-high" class="form__input" type="text" placeholder="Добавить важных дел">
+      <input class="form__input-btn" value="" type="submit">
+    </form>
+    <ul class="to-do__list to-do__list_high">
+      <li class="to-do__list-item flex">
+        <button class="checkbox-btn"></button>
+        <p class="to-do__task-descr">
+          Вот вам и супер интересная тема. <br>
+          Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести некоторые вещи
+          куда-то за пределы основной программы.
+        </p>
+        <button class="del-task-btn"></button>
+      </li>
+      <li class="to-do__list-item flex">
+        <button class="checkbox-btn"></button>
+        <p class="to-do__task-descr">
+          Сверстать этот TODO list
+        </p>
+        <button class="del-task-btn"></button>
+      </li>
+      <li class="to-do__list-item to-do__list-item_done flex">
+        <button class="checkbox-btn checkbox-btn_done"></button>
+        <p class="to-do__task-descr">
+          Начать делать задачу
+        </p>
+        <button class="del-task-btn"></button>
+      </li>
+    </ul>
+    <p class="to-do__priority">LOW</p>
+    <form onsubmit="return false" class="to-do__form to-do__form_low">
+      <input id="form-low" class="form__input" type="text" placeholder="Добавить важных дел">
+      <input class="form__input-btn" value="" type="submit">
+    </form>
+    <ul class="to-do__list to-do__list_low">
+      <li class="to-do__list-item flex">
+        <button class="checkbox-btn"></button>
+        <p class="to-do__task-descr">
+          Посмотреть ютубчик
+        </p>
+        <button class="del-task-btn"></button>
+      </li>
+    </ul>
   </div>
-
-
-  <div class="low__block">
-    <p class="low__text">LOW</p>
-  
-    <div class="low__add">
-      <input type="text" class="low__input" placeholder="Добавить">
-      <img src="/img/add-icon.svg" alt="" class="add__icon">
-    </div>
-  
-    <div class="added__low-task">
-      <input type="radio" class="check__low-task">
-      <p class="added__low-text">Посмотреть ютубчик</p>
-      <img src="/img/close-icon.svg" alt="" class="close__icon">
-    </div>
-
-  
-  </div>
-
-</div>
-
-  <script type="module" src="/main.js"></script>
+  <script type="module" src="./main.js"></script>
 </body>
 
 </html>

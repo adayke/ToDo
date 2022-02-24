@@ -1,71 +1,39 @@
-const list = [
-  { name: "create task", status: "To Do", priority: 'Low' },
-  { name: "make a bed", status: "In Progress", priority: 'Low' },
-  { name: "write a post", status: "Done", priority: "High" },
-  { name: "do sport", status: "Done", priority: "High" },  
-];
+import { BUTTON } from './view.js';
 
-function addTask(name) {
-  list.push({ name: name, status: 'To Do', priority: 'Low' })
-};
+function addTask(event) {
+  let taskList = event.currentTarget.parentElement.nextElementSibling;
+  let input = event.currentTarget.previousElementSibling.value;
 
-function deleteTask(name) {
-  list.find(function (item, index) { 
-    if(item.name === name) {
-      list.splice(index, 1)
-    }
-   })
-};
+  if (input.trim()) {
+    let newTask = document.createElement('li');
 
-function changeStatus(name, status) {
-  let findName = list.find(item => item.name == name)
-    findName['status'] = status
-      if(status == 'Done') {
-        findName['priority'] = 'High'
-      } else {
-        findName['priority'] = 'Low'
-      }
-}
-  
-  function showList() {
-    console.log("To Do:")
-    list.forEach(function (item) {
-      if (item.status === 'To Do') {
-        console.log(`\t${item.name}`);
-    }
-  })
+    newTask.className = 'to-do__list-item flex';
+    newTask.innerHTML = `<button class="checkbox-btn"></button> <p class="to-do__task-descr">${input}</p> <button class="del-task-btn"></button>`;
+    taskList.prepend(newTask);
 
-    console.log("In Progress:")
-    list.forEach( function(item) {
-      if(item.status === 'In Progress') {
-        console.log(`\t${item.name}`)
-      }
-    })  
-    
-  console.log("Done:")
-    list.forEach( function(item) {
-      if(item.status === 'Done') {
-        console.log(`\t${item.name}`)
-      }
-    })
-} showList();
-
-function showBy(item) {
-  if(item == 'High') {
-  console.log('High:')
-  list.forEach( function(item) {
-    if(item.priority == 'High') {
-      console.log(`\t${item.name}`)
-    }
-  })
-}
-  if(item == 'Low'){
-    console.log('Low:')
-    list.forEach(function (item) {
-      if(item.priority == 'Low') {
-        console.log(`\t${item.name}`)
-      }
-    })
+    newTask.lastElementChild.addEventListener('click', deleteTask);
+    newTask.firstElementChild.addEventListener('click', changeStatus);
   }
-
 }
+
+function deleteTask(event) {
+  event.currentTarget.parentElement.remove();
+}
+
+function changeStatus(event) {
+  event.currentTarget.classList.toggle('checkbox-btn_done');
+  event.currentTarget.parentElement.classList.toggle('to-do__list-item_done');
+}
+
+for (let btn of BUTTON.ADD_TASK) {
+  btn.addEventListener('click', addTask);
+}
+
+for (let btn of BUTTON.DELETE_TASK) {
+  btn.addEventListener('click', deleteTask);
+}
+
+for (let btn of BUTTON.CHANGE_STATUS) {
+  btn.addEventListener('click', changeStatus);
+}
+
