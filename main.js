@@ -4,19 +4,32 @@ function addTask(event) {
   let taskList = event.currentTarget.parentElement.nextElementSibling;
   let input = event.currentTarget.previousElementSibling.value;
 
-  let newTask = document.createElement('li');
 
-  newTask.className = 'to-do__list-item flex';
-  newTask.innerHTML = `
-  <button class="checkbox-btn"></button> 
-  <p class="to-do__task-descr">${input}</p> 
-  <button class="del-task-btn"></button>
-  `;
-  taskList.prepend(newTask);
-  
-  newTask.lastElementChild.addEventListener('click', deleteTask);
-  newTask.firstElementChild.addEventListener('click', changeStatus);
+  try {
+    if(!input) {
+      throw new SyntaxError("Данные неполны: нет таска");
+    }
+  } catch(e) { 
+    alert(e.message);
+  }
+
+  if(input.trim()) {
+      let newTask = document.createElement('li');
+
+      newTask.className = 'to-do__list-item flex';
+      newTask.innerHTML = `
+      <button class="checkbox-btn"></button> 
+      <p class="to-do__task-descr">${input}</p> 
+      <button class="del-task-btn"></button>
+      `;
+      taskList.prepend(newTask);
+      
+      newTask.lastElementChild.addEventListener('click', deleteTask);
+      newTask.firstElementChild.addEventListener('click', changeStatus);
+  }
 }
+
+
 
 function deleteTask(event) {
   event.currentTarget.parentElement.remove();
